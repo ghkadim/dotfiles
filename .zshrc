@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/dkasyanov/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -119,7 +119,7 @@ autoload -U colors; colors
 #alias aws='docker run --rm -it -v ~/.aws:/root/.aws -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN amazon/aws-cli '
 
 #export GOROOT=~/sdk/go1.18
-export GOROOT=/usr/local/opt/go/libexec
+#export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=~/go
 export GOBIN="${GOPATH}/bin"
 
@@ -133,7 +133,7 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 #export KUBECONFIG=~/.kube/kubeconfig_merged
 export GOPRIVATE=github.com/Mirantis/*,github.com/shipa-corp/*
 
-export AWS_PROFILE="AdministratorAccess-133334835781"
+#export AWS_PROFILE="AdministratorAccess-133334835781"
 
 alias k="kubectl "
 #alias kg="kubectl get "
@@ -155,13 +155,14 @@ autoload -U compinit; compinit
 #autoload -U +X bashcompinit && bashcompinit
 #complete -o nospace -C /usr/local/bin/terraform terraform
 
-tmux has-session -t src-shipa 2>/dev/null || (cd ~/go/src/github.com/shipa-corp && tmux new -d -s src-shipa)
-#tmux has-session -t bootstrap 2>/dev/null || (cd ~/src/bootstrap/openstack; tmux new -d -s bootstrap)
+
+export KUBE_TMUX_NS_ENABLE=false
+tmux has-session -t src 2>/dev/null || (cd ~/src && tmux new -d -s src)
 tmux has-session -t tmp 2>/dev/null || (cd /tmp; tmux new -d -s tmp)
-tmux has-session -t tf-lab 2>/dev/null || (cd ~/go/src/github.com/ghkadim/terraform_certified && tmux new -d -s tf-lab)
+# tmux has-session -t tf-lab 2>/dev/null || (cd ~/go/src/github.com/ghkadim/terraform_certified && tmux new -d -s tf-lab)
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/dkasyanov/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dkasyanov/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/dkasyanov/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dkasyanov/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/dkasyanov/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dkasyanov/google-cloud-sdk/completion.zsh.inc'; fi
+# if [ -f '/Users/dkasyanov/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dkasyanov/google-cloud-sdk/completion.zsh.inc'; fi

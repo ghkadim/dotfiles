@@ -358,7 +358,7 @@ let g:easy_align_delimiters = {
 \  '\': { 'pattern': '\\', 'left_margin': 0, 'right_margin': 0, 'stick_to_left': 0 }
 \ }
 
-let g:go_bin_path = "/Users/dkasyanov/go/bin"
+let g:go_bin_path = "${HOME}/go/bin"
 
 "Подключение других vimrc"
 set exrc
